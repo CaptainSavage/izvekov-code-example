@@ -20,8 +20,12 @@ use yii\web\NotFoundHttpException;
 class CompareOrderShortHandler
 {
     /**
+     * @param Task $task
+     *
+     * @return string
      * @throws Exception
      * @throws NotFoundHttpException
+     * @throws \PhpOffice\PhpSpreadsheet\Reader\Exception
      * @throws \PhpOffice\PhpSpreadsheet\Writer\Exception
      */
     public function run(Task $task): string
@@ -39,9 +43,12 @@ class CompareOrderShortHandler
     }
 
     /**
+     * @param array $taskProperty
+     *
+     * @return array
      * @throws NotFoundHttpException
      */
-    private static function prepareData($taskProperty): array
+    private static function prepareData(array $taskProperty): array
     {
         $tenderId = $taskProperty['tender_id'];
         $tender = Tender::findOne($tenderId);
@@ -102,10 +109,13 @@ class CompareOrderShortHandler
     }
 
     /**
+     * @param array $data
+     *
+     * @return string
      * @throws Exception
-     * @throws \PhpOffice\PhpSpreadsheet\Writer\Exception
      * @throws NotFoundHttpException
      * @throws \PhpOffice\PhpSpreadsheet\Reader\Exception
+     * @throws \PhpOffice\PhpSpreadsheet\Writer\Exception
      */
     private function makeExcelWithLost(array $data): string
     {
@@ -154,8 +164,12 @@ class CompareOrderShortHandler
     }
 
     /**
+     * @param $data
+     *
+     * @return string
      * @throws Exception
      * @throws NotFoundHttpException
+     * @throws \PhpOffice\PhpSpreadsheet\Reader\Exception
      * @throws \PhpOffice\PhpSpreadsheet\Writer\Exception
      */
     private function makeExcel($data): string
@@ -185,6 +199,7 @@ class CompareOrderShortHandler
      * @param Tender $tender
      * @param TenderItem[] $tenderItems
      * @param Order[] $orders
+     *
      * @return void
      * @throws Exception
      */
@@ -290,6 +305,7 @@ class CompareOrderShortHandler
      *
      * @param Worksheet $sheet
      * @param int $cnOrders
+     *
      * @return void
      * @throws Exception
      */
@@ -356,6 +372,7 @@ class CompareOrderShortHandler
      *
      * @param integer $tenderId
      * @param Spreadsheet $spreadsheet
+     *
      * @return string
      * @throws NotFoundHttpException
      * @throws \PhpOffice\PhpSpreadsheet\Writer\Exception
