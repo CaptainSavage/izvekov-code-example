@@ -11,7 +11,7 @@ curl --location 'http://localhost:8000/print-service/compare-order-short' \
 --form 'orders[]="143"'
 ```
 
-Непосредственно код, написанный мной, находится в файле [basic/models/printService/handlers/CompareOrderShortHandler.php](https://github.com/CaptainSavage/izvekov-code-example/blob/c3cbf58d0b651b517261b8b1921981d8b9fdbdb3/basic/models/printService/handlers/CompareOrderShortHandler.php). Остальное — "обвязка" для работы этого кода (модели, с которыми он взаимодействует, контроллер и проч, я постарался этот код максимально упростить). 
+Непосредственно код, написанный мной, находится в файле [basic/models/printService/handlers/CompareOrderShortHandler.php](https://github.com/CaptainSavage/izvekov-code-example/blob/d9b788d0f1b29b713dd67e1ca290dcb29a1854ae/basic/models/printService/handlers/CompareOrderShortHandler.php). Остальное — "обвязка" для работы этого кода (модели, с которыми он взаимодействует, контроллер и проч, я постарался этот код максимально упростить). 
 
 Вкратце, как это работает: 
   1. Валидируем пришедшие данные с помощью `basic/models/printService/requests/CompareOrderShortRequest.php`
